@@ -1,5 +1,6 @@
 package spring_boot_with_external_server.spring_boot_with_external_server.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class LoanController {
     private final LoanService loanService;
 
     @PostMapping("/borrow")
-    public ResponseEntity<ApiResponse<LoanDTO>> borrowBook(@Validated @RequestBody LoanDTO loanDTO){
+    public ResponseEntity<ApiResponse<LoanDTO>> borrowBook(@Valid @RequestBody LoanDTO loanDTO){
 
         LoanDTO loanDTO1 = loanService.borrowBook(loanDTO);
         //the loanDTO1 will never be null since
